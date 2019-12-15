@@ -252,7 +252,27 @@ class FifthScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         body: SafeArea(
           child: Column(
-            children: <Widget>[Text('Dashboard')],
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Text(
+                  'Dashboard',
+                  style: TextStyle(
+                    color: const Color(0xff99316203),
+                    fontFamily: 'Rubik',
+                    fontSize: 48,
+                  ),
+                ),
+              ),
+              Text(
+                'continue learning',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Rubik',
+                  fontSize: 18,
+                ),
+              ),
+            ],
           ),
         ),
       ),
