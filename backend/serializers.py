@@ -19,5 +19,5 @@ class CourseSerializer(serializers.ModelSerializer):
 class ProfileSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Profile
-		fields = ('user','enrolled')
+		fields = ('user','enrolled','experience','language','depth','timeCommitment')
 

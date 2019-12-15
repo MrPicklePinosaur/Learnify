@@ -42,6 +42,6 @@ class Profile(models.Model):
 	enrolled = models.ManyToManyField(Course,related_name='enrolled')
 
 	experience = models.CharField(max_length=64,choices=experience_choices,blank=True)
-	language = models.CharField(max_length=20,choices=language_choices,blank=True)
-	depth = models.CharField(max_length=30,blank=True)
-	timeCommitment = models.DurationField(blank=True)
+	language = models.CharField(max_length=32,choices=language_choices,blank=True)
+	depth = models.CharField(max_length=32,blank=True)
+	timeCommitment = models.CharField(max_length=32,blank=True)

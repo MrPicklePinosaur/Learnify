@@ -53,12 +53,10 @@ class ProfileView(viewsets.ModelViewSet):
 	queryset = Profile.objects.all()
 	serializer_class = ProfileSerializer
 
-	def create_profile(self, request):
-		pass
-
-
-	@action(methods=['get'],detail=True)	
+	@action(methods=['get'],detail=False)	
 	def getcourses(self,request):
-		qset = self.get_queryset().only("courses")
+		#qset = self.get_queryset().only("enrolled")
+		qset = Profile.objects.defer("enrolled").filter(id=1).last()
 		serializer = self.get_serializer_class()(qset)
+		print(serializer.data)
 		return response.Response(serializer.data)
