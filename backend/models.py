@@ -26,4 +26,4 @@ class Resource(models.Model):
 
 class Course(models.Model):
 	name = models.CharField(max_length=64)
-	#cources = djongomodels.ArrayModelField(model_container=Resource,blank=True)
+	courses = models.ManyToManyField(Resource,related_name='courses')
