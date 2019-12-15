@@ -14,14 +14,35 @@ class TagsView(viewsets.ModelViewSet):
 class ResourceView(viewsets.ModelViewSet):
 	queryset = Resource.objects.all()
 	serializer_class = ResourceSerializer
+	
+	def list(self,request):
+		pass
+
+	def create(self. request):
+		pass
+
+	def retrieve(self, request, pk=None):
+		pass
+
+	def update(self,request, pk=None)
+		pass
 
 class CourseView(viewsets.ModelViewSet):
 	queryset = Course.objects.all()
 	serializer_class = CourseSerializer
 
-
-	def create_course():
+	def list(self,request):
 		pass
+
+	def create(self. request):
+		pass
+
+	def retrieve(self, request, pk=None):
+		pass
+
+	def update(self,request, pk=None)
+		pass
+
 
 
 class ProfileView(viewsets.ModelViewSet):
@@ -31,8 +52,7 @@ class ProfileView(viewsets.ModelViewSet):
 	def list(self,request):
 		pass
 
-	def create(self, request):
-		request.body
+	def create(self. request):
 		pass
 
 	def retrieve(self, request, pk=None):
