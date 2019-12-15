@@ -13,7 +13,7 @@ import 'package:learnify/Question4.dart';
 import 'package:learnify/Question5.dart';
 
 class Question3 extends StatelessWidget {
-  String selection3 = '';
+  static String commitment = '';
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class Question3 extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  selection3 = "1-2 hours";
+                  commitment = "1-2 hours";
                 },
               ),
             ),
@@ -85,7 +85,7 @@ class Question3 extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  selection3 = "3-5 hours";
+                  commitment = "3-5 hours";
                 },
               ),
             ),
@@ -108,7 +108,7 @@ class Question3 extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  selection3 = "6+";
+                  commitment = "6+";
                 },
               ),
             ),

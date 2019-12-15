@@ -13,7 +13,7 @@ import 'package:learnify/Question4.dart';
 import 'package:learnify/Question5.dart';
 
 class Question4 extends StatelessWidget {
-  String selection4 = '';
+  List<String> interests = List<String>();
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class Question4 extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      selection4 = "computer vision";
+                      interests.add( "computer vision");
                     },
                   ),
                 ),
@@ -89,7 +89,7 @@ class Question4 extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      selection4 = "react";
+                      interests.add("react");
                     },
                   ),
                 ),
@@ -118,7 +118,7 @@ class Question4 extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      selection4 = "machine learning";
+                      interests.add("machine learning");
                     },
                   ),
                 ),
@@ -141,7 +141,7 @@ class Question4 extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      selection4 = "flutter";
+                      interests.add("flutter");
                     },
                   ),
                 ),
@@ -170,7 +170,7 @@ class Question4 extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      selection4 = "fundamentals";
+                      interests.add("fundamentals");
                     },
                   ),
                 ),
@@ -193,7 +193,7 @@ class Question4 extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      selection4 = "nlp";
+                      interests.add("nlp");
                     },
                   ),
                 ),
@@ -219,7 +219,7 @@ class Question4 extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  selection4 = "augmented reality";
+                  interests.add("augmented reality");
                 },
               ),
             ),

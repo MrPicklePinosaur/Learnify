@@ -13,7 +13,7 @@ import 'package:learnify/Question4.dart';
 import 'package:learnify/Question5.dart';
 
 class Question5 extends StatelessWidget {
-  String selection5 = '';
+  String depth = '';
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class Question5 extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  selection5 = "broad overview";
+                  depth = "broad overview";
                 },
               ),
             ),
@@ -85,7 +85,7 @@ class Question5 extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  selection5 = "technical";
+                  depth = "technical";
                 },
               ),
             ),
@@ -108,7 +108,7 @@ class Question5 extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  selection5 = "highly technical";
+                  depth = "highly technical";
                 },
               ),
             ),

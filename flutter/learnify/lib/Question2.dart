@@ -13,7 +13,7 @@ import 'package:learnify/Question4.dart';
 import 'package:learnify/Question5.dart';
 
 class Question2 extends StatelessWidget {
-  String selection2 = '';
+  static String language = '';
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class Question2 extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      selection2 = "none";
+                      language = "none";
                     },
                   ),
                 ),
@@ -89,7 +89,7 @@ class Question2 extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      selection2 = "java";
+                      language = "java";
                     },
                   ),
                 ),
@@ -118,7 +118,7 @@ class Question2 extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      selection2 = "js";
+                      language = "js";
                     },
                   ),
                 ),
@@ -141,7 +141,7 @@ class Question2 extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      selection2 = "python";
+                      language = "python";
                     },
                   ),
                 ),
@@ -170,7 +170,7 @@ class Question2 extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      selection2 = "html/css";
+                      language = "html/css";
                     },
                   ),
                 ),
@@ -193,7 +193,7 @@ class Question2 extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      selection2 = "C++";
+                      language = "C++";
                     },
                   ),
                 ),
