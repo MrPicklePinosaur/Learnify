@@ -3,9 +3,10 @@ import 'package:http/http.dart';
 
 class CommandHandler {
   String url = "http://localhost:8800";
-  Future<bool> createUser(Map<String, dynamic> params) async {
+  Future<bool> createUser(String user,String pwd) async {
     Map<String, String> headers = {"Content-type": "application/json"};
-    String json = '{"title": "Hello", "body": "body text", "userId": 1}';
+    String json = jsonEncode({"user":user,"password":pwd});
+
     Response response = await post(url, headers: headers, body: json);
 
     int statusCode = response.statusCode;
@@ -14,6 +15,31 @@ class CommandHandler {
     return ret['valid'];
   }
 
-  String getRecommendations() {}
-  String authenticateUser() {}
+  Future<List<String>> getRecommendations(user,pwd) async{
+    Map<String, String> headers = {"Content-type": "application/json"};
+    String json = jsonEncode({"user":user,"password":pwd});
+
+    Response response = await post(url, headers: headers, body: json);
+
+    int statusCode = response.statusCode;
+    Map<String, dynamic> ret = jsonDecode(response.body);
+
+    return ret['valid'];
+
+
+  }
+  Future<bool> authenticateUser(String user,String pwd) async {
+    Map<String, String> headers = {"Content-type": "application/json"};
+    String json = jsonEncode({"user":user,"password":pwd});
+
+    Response response = await post(url, headers: headers, body: json);
+
+    int statusCode = response.statusCode;
+    Map<String, dynamic> ret = jsonDecode(response.body);
+
+    return ret['valid'];
+
+
+
+  }
 }
