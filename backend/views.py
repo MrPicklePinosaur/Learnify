@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from . models import *
 from . serializers import *
 from . coursebuilder import *
+import json
 
 # Create your views here.
 
@@ -22,6 +23,8 @@ class ResourceView(viewsets.ModelViewSet):
 
 	@action(methods=['get'], detail=False)
 	def testaction(self,request):
+
+
 		qset = self.get_queryset().only('experience').filter(name__icontains='p')
 		serializer = self.get_serializer_class()(qset,many=True)
 		print(qset)
@@ -35,22 +38,15 @@ class CourseView(viewsets.ModelViewSet):
 	#permission_classes = (IsAuthenticated,)
 
 	@action(methods=['post'], detail=False)
-	def create_course(self, request):
+	def createcourse(self, request):
 		body = request.body
+
 
 		#VALIDATE DATA
 
-		courses_obj = {
-			"focus": body["focus"][0],
-			"prereqs": body["prereqs"]
-		}
+		in_order = organize_prereqs(json.loads(body))
 
-		in_order = organize_prereqs(courses_obj)
-
-		qset = self.get_queryset()
-
-		serializer = self.get_serializer_class()(qset)
-		return response.Response(qset.data)
+		return response.Response(json.dumps(in_order))
 
 
 
@@ -67,3 +63,13 @@ class ProfileView(viewsets.ModelViewSet):
 		serializer = self.get_serializer_class()(qset)
 		print(serializer.data)
 		return response.Response(serializer.data)
+
+	#@action(method=['post'],detail=False)
+
+def RegistrationView(request):
+	body = request.body
+
+	user = User.objects.create_user(username=body["username"],password=body["password"])
+
+	return request.Request({})
+

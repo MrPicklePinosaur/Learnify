@@ -13,5 +13,6 @@ for url in router.urls:
 	print(url)
 
 urlpatterns = [
-	path('',include(router.urls))
+	path('',include(router.urls)),
+    path('register/',views.RegistrationView, name='backend-registration')
 ]
