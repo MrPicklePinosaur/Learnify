@@ -7,6 +7,5 @@ router = routers.DefaultRouter()
 router.register('resource',views.ResourceView) #endpoint, view
 
 urlpatterns = [
-	#path('',views.home, name='backend-home')
 	path('',include(router.urls))
 ]

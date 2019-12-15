@@ -1,4 +1,4 @@
-from backend.enums import *
+
 from django.db import models
 #from enumchoicefield import EnumChoiceField
 
