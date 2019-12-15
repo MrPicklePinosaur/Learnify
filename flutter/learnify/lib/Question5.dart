@@ -124,7 +124,7 @@ class Question5 extends StatelessWidget {
                       side: BorderSide(color: Colors.white)),
                   color: Colors.white,
                   onPressed: () {
-                    CommandHandler.ref.createUser(Register.user,Register.password,Question1.selectedExperience, Question2.language, Question3.commitment, Question4.interests, depth);
+                    CommandHandler.ref.createUser(Register.usernameController.text,Register.passwordController.text,Question1.selectedExperience, Question2.language, Question3.commitment, Question4.interests, depth);
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => Login()));
                   },

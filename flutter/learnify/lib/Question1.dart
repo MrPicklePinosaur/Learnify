@@ -40,12 +40,56 @@ class Question1 extends StatelessWidget {
                 fontSize: 25,
               ),
             ),
-            DropdownButton(
-              hint: Text("Please select your experience level"),
+            Padding(
+              padding: const EdgeInsets.only(right: 25.0, bottom: 25.0),
+              child: RaisedButton(
+                shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(18.0),
+                    side: BorderSide(color: Colors.white)),
+                color: Colors.white,
+                textColor: Colors.black,
+                elevation: 6,
+                padding: EdgeInsets.all(15.0),
+                child: Text(
+                  experiences[0],
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.black,
+                    fontFamily: 'Rubik',
+                  ),
+                ),
+                onPressed: () {
+                  selectedExperience = experiences[0];
+                },
+              ),
             ),
-          ],
-        ),
+            Padding(
+              padding: const EdgeInsets.only(right: 25.0, bottom: 25.0),
+              child: RaisedButton(
+                shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(18.0),
+                    side: BorderSide(color: Colors.white)),
+                color: Colors.white,
+                textColor: Colors.black,
+                elevation: 6,
+                padding: EdgeInsets.all(15.0),
+                child: Text(
+                  selectedExperience=experiences[1],
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.black,
+                    fontFamily: 'Rubik',
+                  ),
+                ),
+                onPressed: () {
+                  selectedExperience = experiences[1];
+                },
+              ),
+    ),
+    ],
+    ),
       ),
-    );
-  }
+            );
+
+}
 }
