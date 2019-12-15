@@ -4,12 +4,14 @@ import 'package:learnify/CommandHandler.dart';
 import 'package:learnify/Dashboard.dart';
 import 'package:learnify/Question1.dart';
 import 'package:learnify/Register.dart';
-var handler = CommandHandler();
-TextEditingController passwordController = TextEditingController();
-TextEditingController usernameController = TextEditingController();
+
+import 'Question2.dart';
+
 
 //LOGIN PAGE
 class Login extends StatelessWidget {
+  static TextEditingController passwordController = TextEditingController();
+  static TextEditingController usernameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -63,19 +65,34 @@ class Login extends StatelessWidget {
                   child: Text('log in'),
                   onPressed: () {
                     handler.authenticateUser(
-                        usernameController.text, passwordController.text);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Dashboard()));
+                        usernameController.text, passwordController.text).then((value) {
+                          if(value){
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) => Dashboard()));
+
+                          }
+
+
+
+                    });
+
+
                   },
                 ),
               ),
-              RaisedButton(
-                child:Text('log in'),
-                onPressed: (){
-                  MaterialPageRoute(builder: (context) => Register());
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 25.0, right: 25.0, bottom: 25.0),
+                child: RaisedButton(
+                  child: Text('register'),
+                  onPressed: () {
+                    Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Register()));
 
-                }
-              )
+
+                  },
+                ),
+              ),
             ],
           ),
         ),

@@ -7,7 +7,7 @@ var handler = CommandHandler();
 
 
 //LOGIN PAGE
-class Login extends StatelessWidget {
+class Register extends StatelessWidget {
   static TextEditingController passwordController = TextEditingController();
   static TextEditingController usernameController = TextEditingController();
   @override
@@ -24,7 +24,7 @@ class Login extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(25.0),
                   child: Text(
-                    '<login>',
+                    '<register>',
                     style: TextStyle(
                       color: const Color(0xff99316203),
                       fontFamily: 'Rubik',

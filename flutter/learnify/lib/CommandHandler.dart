@@ -39,7 +39,6 @@ class CommandHandler {
 
   }
   Future<bool> authenticateUser(String user,String pwd) async {
-    print("rr");
     Map<String, String> headers = {"Content-type": "application/x-www-form-urlencoded"};
     String json = "username="+user+"&password="+pwd;
     print(json);
