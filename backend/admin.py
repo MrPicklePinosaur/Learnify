@@ -5,4 +5,5 @@ from . models import *
 admin.site.register(Tags) 
 admin.site.register(Resource) 
 admin.site.register(Course) 
+admin.site.register(Interests)
 admin.site.register(Profile)

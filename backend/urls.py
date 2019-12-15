@@ -7,6 +7,7 @@ router = routers.DefaultRouter()
 router.register('tags',views.TagsView, basename="tags")
 router.register('resource',views.ResourceView, basename="resource") #endpoint, view
 router.register('course',views.CourseView, basename="course")
+router.register('interests',views.InterestsView, basename="interests")
 router.register('profile',views.ProfileView, basename="profile")
 
 for url in router.urls:
@@ -14,5 +15,5 @@ for url in router.urls:
 
 urlpatterns = [
 	path('',include(router.urls)),
-    path('register/',views.RegistrationView, name='backend-registration')
+
 ]

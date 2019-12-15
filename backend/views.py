@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import django.middleware
 from rest_framework import viewsets, response
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -48,28 +49,49 @@ class CourseView(viewsets.ModelViewSet):
 
 		return response.Response(json.dumps(in_order))
 
-
+class InterestsView(viewsets.ModelViewSet):
+	queryset = Interests.objects.all()
+	serializer_class = InterestsSerializer
 
 class ProfileView(viewsets.ModelViewSet):
+
 	queryset = Profile.objects.all()
 	serializer_class = ProfileSerializer
 
 	@action(methods=['get'],detail=False)	
 	def getcourses(self,request):
-		#qset = self.get_queryset().only("enrolled")
 		qset = self.get_queryset()
-		#qset.filter()
-		print(qset)
 		serializer = self.get_serializer_class()(qset)
-		print(serializer.data)
 		return response.Response(serializer.data)
 
-	#@action(method=['post'],detail=False)
+	@action(methods=['post'],detail=False)
+	def register(self,request):
+		body = json.loads(request.body)[0]
+		print(body)
+		#django.middleware.csrf.get_token(request)
+		user = User.objects.create_user(username=body["username"],password=body["password"])
 
-def RegistrationView(request):
-	body = request.body
+		profile = Profile(user=user,experience=body["experience"],language=body["language"],depth=body["depth"],timeCommitment=body["commitment"])
+		
 
-	user = User.objects.create_user(username=body["username"],password=body["password"])
+		raw_interests = body["interests"]
+		for r in raw_interests:
+			
+			i = Interests(interest=r)
+			profile.save()
+			i.save()
+			profile.interests.add(i)
 
-	return request.Request({})
+			
+		profile.save()
+		'''username
+		password
+		experience
+		language
+		commitment
+		interests
+		depth
+		'''
+
+		return response.Response({})
 

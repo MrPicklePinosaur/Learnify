@@ -16,6 +16,11 @@ class CourseSerializer(serializers.ModelSerializer):
 		model = Course
 		fields = ('name','resources')
 
+class InterestsSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Interests
+		fields = ('interest',)
+
 class ProfileSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Profile
