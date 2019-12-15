@@ -9,8 +9,9 @@ router.register('resource',views.ResourceView, basename="resource") #endpoint, v
 router.register('course',views.CourseView)
 router.register('profile',views.ProfileView)
 
-
-
+for url in router.urls:
+	print(url)
+	
 urlpatterns = [
 	path('',include(router.urls))
 ]
