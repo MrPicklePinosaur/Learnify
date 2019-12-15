@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart';
+import 'package:learnify/Login.dart';
 
 class CommandHandler {
   static String accessToken;
@@ -13,11 +14,11 @@ class CommandHandler {
 
   Future<bool> createUser(String user,String pwd,String experience,String language, String commitment,List<String> interests,String depth) async {
     Map<String, String> headers = {"Content-type": "application/json"};
-    String json = jsonEncode({"user":user,"password":pwd,"experience":experience,"language":language,
+    String json = jsonEncode({"username":user,"password":pwd,"experience":experience,"language":language,
       "commitment":commitment,"interests":interests,"depth":depth});
 
 
-    Response response = await post(ip+"/profile/create_profile", headers: headers, body: json);
+    Response response = await post(ip+"/profile/register/", headers: headers, body: json);
 
     int statusCode = response.statusCode;
     Map<String, dynamic> ret = jsonDecode(response.body);
@@ -58,14 +59,26 @@ class CommandHandler {
       throw "Can't get posts.";
     }
   }
-  Future<Map<String,dynamic>> getStats(String user,String pwd) async {
+  Future<List<Map<String,String>>> createCourse() async {
+    Map<String, String> headers = {"Content-type": "application/json"};
+    String json = jsonEncode({});
 
 
+    Response response = await post(ip+"/course/createcourse/", headers: headers, body: json);
 
+    int statusCode = response.statusCode;
+    Map<String, dynamic> ret = jsonDecode(response.body);
 
+    return ret['valid'];
+  }
+  Future<List<String>> getInterests() async{
+    Map<String, String> headers = {"Content-type": "application/json"};
+    String json = jsonEncode({"user":Login.usernameController});
+    Response response = await post(ip+"/course/createcourse/", headers: headers, body: json);
+    int statusCode = response.statusCode;
+    Map<String, dynamic> ret = jsonDecode(response.body);
 
-
-
+    return ret['interests'];
 
   }
 }

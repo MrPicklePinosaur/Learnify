@@ -27,10 +27,11 @@ def topological_sort(courses):
     return t
 
 def organize_prereqs(courses_obj):
+    print(courses_obj)
     courses={c["focus"]:[i["focus"] for i in courses_obj if i["focus"]!=c["focus"] and c["focus"] in i["prereqs"]] for c in courses_obj}
     visited={i:False for i in courses.keys()}
     order=topological_sort(courses)
-    return sorted(courses_obj,key=lambda x: order[x["focus"]])
+    return sorted(courses_obj,key=lambda x: order.index(x["focus"]))
 
 '''
 if __name__ == '__main__':
