@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import djongo
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -81,7 +82,17 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'learnify-atlas',
+        'HOST': 'mongodb+srv://mrpic:pythonislife@learnify-atlas-i003m.mongodb.net/test?retryWrites=true&w=majority',
+        'USER': 'mrpic',
+        'PASSWORD': 'pythonislife',
+    }
+}
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -121,8 +132,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-'''
+
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticatedOrReadOnly')
+    #'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticatedOrReadOnly')
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',)
 }
-'''
+
