@@ -14,4 +14,9 @@ class ResourceSerializer(serializers.ModelSerializer):
 class CourseSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Course
-		fields = ()
+		fields = ('name','resources')
+
+class ProfileSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Profile
+		fields = ('user','enrolled')

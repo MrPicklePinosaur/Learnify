@@ -1,5 +1,6 @@
 
 from django.db import models
+from django.contrib.auth.models import User
 
 #from djongo import models as djongomodels
 
@@ -27,7 +28,9 @@ class Resource(models.Model):
 
 class Course(models.Model):
 	name = models.CharField(max_length=64)
-	courses = models.ManyToManyField(Resource,related_name='courses')
+	resources = models.ManyToManyField(Resource,related_name='courses')
 
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	enrolled = models.ManyToManyField(Course,related_name='enrolled')
+
