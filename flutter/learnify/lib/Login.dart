@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:learnify/CommandHandler.dart';
+import 'package:learnify/Dashboard.dart';
 import 'package:learnify/Question1.dart';
-
+import 'package:learnify/Register.dart';
 var handler = CommandHandler();
 TextEditingController passwordController = TextEditingController();
 TextEditingController usernameController = TextEditingController();
@@ -64,10 +65,17 @@ class Login extends StatelessWidget {
                     handler.authenticateUser(
                         usernameController.text, passwordController.text);
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Question1()));
+                        MaterialPageRoute(builder: (context) => Dashboard()));
                   },
                 ),
               ),
+              RaisedButton(
+                child:Text('log in'),
+                onPressed: (){
+                  MaterialPageRoute(builder: (context) => Register());
+
+                }
+              )
             ],
           ),
         ),

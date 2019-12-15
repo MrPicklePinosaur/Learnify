@@ -13,7 +13,7 @@ import 'package:learnify/Question4.dart';
 import 'package:learnify/Question5.dart';
 
 class Question4 extends StatelessWidget {
-  List<String> interests = List<String>();
+  static List<String> interests = List<String>();
 
   @override
   Widget build(BuildContext context) {

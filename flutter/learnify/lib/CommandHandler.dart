@@ -5,13 +5,19 @@ class CommandHandler {
   static String accessToken;
   static String refreshToken;
   String ip = "http://172.17.51.223:8000";
-  Future<bool> createUser(String user,String pwd,String experience,List<String> languages,int timeCommitment,List<String> subjectAreas,String depth) async {
+  static CommandHandler ref;
+
+  CommandHandler(){
+    ref=this;
+  }
+
+  Future<bool> createUser(String user,String pwd,String experience,String language, String commitment,List<String> interests,String depth) async {
     Map<String, String> headers = {"Content-type": "application/json"};
     String json = jsonEncode({"user":user,"password":pwd,"experience":experience,"languages":languages,
-      "timeCommitment":timeCommitment,"subjects":subjectAreas,"depth":depth});
+      "timeCommitment":commitment,"interests":interests,"depth":depth});
 
 
-    Response response = await post(ip+"/profile/create", headers: headers, body: json);
+    Response response = await post(ip+"/profile/create_profile", headers: headers, body: json);
 
     int statusCode = response.statusCode;
     Map<String, dynamic> ret = jsonDecode(response.body);
