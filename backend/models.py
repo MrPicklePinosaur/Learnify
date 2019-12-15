@@ -12,3 +12,6 @@ class Resource(models.Model):
 	focus = 
 	prereqs = 
 	'''
+
+	def __str__(self):
+		return name
