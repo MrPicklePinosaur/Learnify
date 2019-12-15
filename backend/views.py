@@ -31,7 +31,7 @@ class ProfileView(viewsets.ModelViewSet):
 	def list(self,request):
 		pass
 
-	def create(self. request):
+	def create(self, request):
 		request.body
 		pass
 
