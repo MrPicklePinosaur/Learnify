@@ -1,16 +1,17 @@
 import enum
+from enumchoicefield import ChoiceEnum
 
-class Tags(enum.Enum):
+class Tags(ChoiceEnum):
 	python = 0
 	java = 1
 	cplusplus = 2
 	csharp = 3
 
-class Experience(enum.Enum):
+class Experience(ChoiceEnum):
 	beginner = 0
 	intermediate = 1
 	pro = 2
 
-class TimeToComplete(enum.Enum):
+class TimeToComplete(ChoiceEnum):
 	brief = 0
 	lengthy = 1
