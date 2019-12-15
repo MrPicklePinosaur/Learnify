@@ -1,5 +1,6 @@
 from queue import Queue
 from collections import namedtuple
+
 def topological_sort(courses):
     t=[]
     visited={i:0 for i in courses.keys()}
@@ -31,7 +32,7 @@ def organize_prereqs(courses_obj):
     order=topological_sort(courses)
     return sorted(courses.keys(),key=order[courses["focus"]])
 
-
+'''
 if __name__ == '__main__':
     organize_prereqs(
 
@@ -39,5 +40,5 @@ if __name__ == '__main__':
          {"focus":3,"prereqs":[9,7,4]},{"focus":4,"prereqs":[]},{"focus":5,"prereqs":[4,10]},
          {"focus":7,"prereqs":[]},{"focus":8,"prereqs":[2,4]},{"focus":9,"prereqs":[5]}]
     )
-
+'''
 
