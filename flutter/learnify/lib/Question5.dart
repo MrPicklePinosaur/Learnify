@@ -15,7 +15,7 @@ import 'package:learnify/Question5.dart';
 import 'package:learnify/Register.dart';
 
 class Question5 extends StatelessWidget {
-  String depth = '';
+  static String depth = '';
 
   @override
   Widget build(BuildContext context) {

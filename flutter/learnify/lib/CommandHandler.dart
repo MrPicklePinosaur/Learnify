@@ -61,15 +61,16 @@ class CommandHandler {
   }
   Future<List<Map<String,String>>> createCourse() async {
     Map<String, String> headers = {"Content-type": "application/json"};
-    String json = jsonEncode({});
+    String json = jsonEncode({"username":Login.usernameController.text});
 
 
     Response response = await post(ip+"/course/createcourse/", headers: headers, body: json);
 
     int statusCode = response.statusCode;
     Map<String, dynamic> ret = jsonDecode(response.body);
+    return ret['course_list'];
 
-    return ret['valid'];
+
   }
   Future<List<String>> getInterests() async{
     Map<String, String> headers = {"Content-type": "application/json"};

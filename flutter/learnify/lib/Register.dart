@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:learnify/CommandHandler.dart';
 import 'package:learnify/Question1.dart';
+import 'package:learnify/Question3.dart';
+import 'package:learnify/Question2.dart';
+import 'package:learnify/Question4.dart';
+import 'package:learnify/Question5.dart';
 
 var handler = CommandHandler();
 
@@ -62,8 +66,7 @@ class Register extends StatelessWidget {
                 child: RaisedButton(
                   child: Text('log in'),
                   onPressed: () {
-                    handler.authenticateUser(
-                        usernameController.text, passwordController.text);
+                    handler.createUser(usernameController.text, passwordController.text,Question1.selectedExperience,Question2.language,Question3.commitment,Question4.interests,Question5.depth);
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => Question1()));
                   },

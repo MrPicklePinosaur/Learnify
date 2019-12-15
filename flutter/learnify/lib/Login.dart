@@ -95,8 +95,17 @@ class Login extends StatelessWidget {
                   color: Colors.blueGrey[900],
                   textColor: Colors.white,
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Register()));
+                    CommandHandler.ref.authenticateUser(usernameController.text, passwordController.text).then((value){
+                      if(value){
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Register()));
+
+                      }else{
+
+                      }
+
+                    });
+
                   },
                 ),
               ),
