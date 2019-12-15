@@ -1,5 +1,6 @@
 
 from django.db import models
+
 #from djongo import models as djongomodels
 
 #from enumchoicefield import EnumChoiceField
@@ -27,3 +28,6 @@ class Resource(models.Model):
 class Course(models.Model):
 	name = models.CharField(max_length=64)
 	courses = models.ManyToManyField(Resource,related_name='courses')
+
+class Profile(models.Model):
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
