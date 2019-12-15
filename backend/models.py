@@ -13,6 +13,7 @@ language_choices=[("NONE","None"),("JAVA","Java"),("JS","Js"),("PYTHON","Python"
 subject_areas=[("COMPUTER VISION","computer vision"),("REACT","react"),
 			   ("MACHINE LEARNING","Machine learning"),("FUNDAMENTALS","Fundamentals"),
 			   ("NLP","Nlp"),("AUGMENTED REALITY","Augmented reality"),("VIRTUAL REALITY","Virtual reality")]
+
 class Tags(models.Model):
 	tag_name = models.CharField(max_length=50)
 
@@ -35,18 +36,12 @@ class Resource(models.Model):
 class Course(models.Model):
 	name = models.CharField(max_length=64)
 	resources = models.ManyToManyField(Resource,related_name='courses')
-class Interest(models.Model):
-	interest = models.CharField(max_length=64, choices=subject_areas)
+
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	enrolled = models.ManyToManyField(Course,related_name='enrolled')
-	experience = models.CharField(max_length=64,choices=experience_choices)
-	language = models.CharField(max_length=20,choices=language_choices)
-	depth= models.CharField(max_length=30)
-	interests=models.ManyToManyField(Interest,related_name='interests')
-	timeCommitment=models.DurationField()
 
-
-
-
-
+	experience = models.CharField(max_length=64,choices=experience_choices,blank=True)
+	language = models.CharField(max_length=20,choices=language_choices,blank=True)
+	depth = models.CharField(max_length=30,blank=True)
+	timeCommitment = models.DurationField(blank=True)
