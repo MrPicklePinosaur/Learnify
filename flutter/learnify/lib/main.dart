@@ -269,7 +269,7 @@ class FifthScreen extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontFamily: 'Rubik',
-                  fontSize: 18,
+                  fontSize: 19,
                 ),
               ),
             ],
