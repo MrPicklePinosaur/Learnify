@@ -5,9 +5,11 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register('tags',views.TagsView)
-router.register('resource',views.ResourceView) #endpoint, view
+router.register('resource',views.ResourceView, basename="resource") #endpoint, view
 router.register('course',views.CourseView)
 router.register('profile',views.ProfileView)
+
+
 
 urlpatterns = [
 	path('',include(router.urls))

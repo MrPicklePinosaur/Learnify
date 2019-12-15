@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, response
+from rest_framework.decorators import action
 from django.contrib.auth.decorators import login_required
 from . models import *
 from . serializers import *
+from . coursebuilder import *
 
 # Create your views here.
 
@@ -12,51 +14,39 @@ class TagsView(viewsets.ModelViewSet):
 	serializer_class = TagsSerializer
 
 class ResourceView(viewsets.ModelViewSet):
+
 	queryset = Resource.objects.all()
 	serializer_class = ResourceSerializer
-	
-	def list(self,request):
-		pass
 
-	def create(self. request):
-		pass
+	@action(methods=['get'], detail=False)
+	def listmeballs(self,request):
+		qset = self.get_queryset().last()
+		serializer = self.get_serializer_class()(qset)
+		return response.Response(serializer.data)
 
-	def retrieve(self, request, pk=None):
-		pass
-
-	def update(self,request, pk=None)
-		pass
 
 class CourseView(viewsets.ModelViewSet):
 	queryset = Course.objects.all()
 	serializer_class = CourseSerializer
 
-	def list(self,request):
-		pass
+	def create_course(self, request):
+		body = request.body
 
-	def create(self. request):
-		pass
+		#VALIDATE DATA
 
-	def retrieve(self, request, pk=None):
-		pass
+		courses_obj = {
+			"focus": body["focus"][0],
+			"prereqs": body["prereqs"]
+		}
+		in_order = organize_prereqs(courses_obj)
 
-	def update(self,request, pk=None)
-		pass
 
+	'''
+	def create(self, request):
+		pass
+	'''
 
 
 class ProfileView(viewsets.ModelViewSet):
 	queryset = Profile.objects.all()
 	serializer_class = ProfileSerializer
-	
-	def list(self,request):
-		pass
-
-	def create(self. request):
-		pass
-
-	def retrieve(self, request, pk=None):
-		pass
-
-	def update(self,request, pk=None)
-		pass
