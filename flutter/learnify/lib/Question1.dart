@@ -7,6 +7,7 @@ import 'package:learnify/Onboarding3.dart';
 import 'package:learnify/Dashboard.dart';
 import 'package:learnify/Question1.dart';
 import 'package:learnify/Login.dart';
+import 'package:learnify/Question2.dart';
 
 class Question1 extends StatelessWidget {
   List<String> experiences = ['beginner', 'intermediate', 'expert'];
@@ -60,6 +61,8 @@ class Question1 extends StatelessWidget {
                 ),
                 onPressed: () {
                   selectedExperience = experiences[0];
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Question2()));
                 },
               ),
             ),
@@ -83,9 +86,36 @@ class Question1 extends StatelessWidget {
                 ),
                 onPressed: () {
                   selectedExperience = experiences[1];
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Question2()));
                 },
               ),
     ),
+            Padding(
+              padding: const EdgeInsets.only(right: 25.0, bottom: 25.0),
+              child: RaisedButton(
+                shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(18.0),
+                    side: BorderSide(color: Colors.white)),
+                color: Colors.white,
+                textColor: Colors.black,
+                elevation: 6,
+                padding: EdgeInsets.all(15.0),
+                child: Text(
+                  selectedExperience=experiences[2],
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.black,
+                    fontFamily: 'Rubik',
+                  ),
+                ),
+                onPressed: () {
+                  selectedExperience = experiences[2];
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Question2()));
+                },
+              ),
+            )
     ],
     ),
       ),
