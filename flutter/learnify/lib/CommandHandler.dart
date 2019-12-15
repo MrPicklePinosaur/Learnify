@@ -2,12 +2,14 @@ import 'dart:convert';
 import 'package:http/http.dart';
 
 class CommandHandler {
-  String url = "http://localhost:8800";
+  static String accessToken;
+  static String refreshToken;
+  String ip = "http://172.17.51.223:8000";
   Future<bool> createUser(String user,String pwd) async {
     Map<String, String> headers = {"Content-type": "application/json"};
     String json = jsonEncode({"user":user,"password":pwd});
 
-    Response response = await post(url, headers: headers, body: json);
+    Response response = await post(ip, headers: headers, body: json);
 
     int statusCode = response.statusCode;
     Map<String, dynamic> ret = jsonDecode(response.body);
@@ -19,7 +21,7 @@ class CommandHandler {
     Map<String, String> headers = {"Content-type": "application/json"};
     String json = jsonEncode({"user":user,"password":pwd});
 
-    Response response = await post(url, headers: headers, body: json);
+    Response response = await post(ip, headers: headers, body: json);
 
     int statusCode = response.statusCode;
     Map<String, dynamic> ret = jsonDecode(response.body);
@@ -29,15 +31,31 @@ class CommandHandler {
 
   }
   Future<bool> authenticateUser(String user,String pwd) async {
-    Map<String, String> headers = {"Content-type": "application/json"};
-    String json = jsonEncode({"user":user,"password":pwd});
+    print("rr");
+    Map<String, String> headers = {"Content-type": "application/x-www-form-urlencoded"};
+    String json = "username="+user+"&password="+pwd;
+    print(json);
+    Response response = await post(ip+"/api/token/", headers: headers, body: json);
 
-    Response response = await post(url, headers: headers, body: json);
+    if (response.statusCode == 200) {
+      Map<String, dynamic> ret = jsonDecode(response.body);
+      if(ret.containsKey("details")){
+        return false;
+      }
+      accessToken=ret['access'];
+      refreshToken=ret['refresh'];
 
-    int statusCode = response.statusCode;
-    Map<String, dynamic> ret = jsonDecode(response.body);
+      return true;
+    } else {
+      print(response.statusCode);
+      throw "Can't get posts.";
+    }
+  }
+  Future<Map<String,dynamic>> getStats(String user,String pwd) async {
 
-    return ret['valid'];
+
+
+
 
 
 
