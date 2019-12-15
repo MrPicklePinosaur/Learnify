@@ -7,6 +7,7 @@ router = routers.DefaultRouter()
 router.register('tags',views.TagsView)
 router.register('resource',views.ResourceView) #endpoint, view
 router.register('course',views.CourseView)
+router.register('profile',views.ProfileView)
 
 urlpatterns = [
 	path('',include(router.urls))
