@@ -195,6 +195,7 @@ class FourthScreen extends StatelessWidget {
             children: <Widget>[
               Center(
                 child: Padding(
+
                   padding: const EdgeInsets.all(25.0),
                   child: Text(
                     '<start coding today>',
@@ -202,6 +203,7 @@ class FourthScreen extends StatelessWidget {
                       color: const Color(0xff99316203),
                       fontFamily: 'Rubik',
                       fontSize: 48,
+
                     ),
                   ),
                 ),
@@ -236,9 +238,18 @@ class FourthScreen extends StatelessWidget {
                 child: RaisedButton(
                   child: Text('sign up'),
                   onPressed: () {
-                    handler.authenticateUser(usernameController.text, passwordController.text);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => FifthScreen()));
+                    var valid=handler.authenticateUser(usernameController.text, passwordController.text);
+                    valid.then((value){
+                      if(value){
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => FifthScreen()));
+
+                      }else{
+
+                      }
+
+                    });
+
                     
                   },
                 ),
