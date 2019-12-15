@@ -13,8 +13,8 @@ class CommandHandler {
 
   Future<bool> createUser(String user,String pwd,String experience,String language, String commitment,List<String> interests,String depth) async {
     Map<String, String> headers = {"Content-type": "application/json"};
-    String json = jsonEncode({"user":user,"password":pwd,"experience":experience,"languages":languages,
-      "timeCommitment":commitment,"interests":interests,"depth":depth});
+    String json = jsonEncode({"user":user,"password":pwd,"experience":experience,"language":language,
+      "commitment":commitment,"interests":interests,"depth":depth});
 
 
     Response response = await post(ip+"/profile/create_profile", headers: headers, body: json);

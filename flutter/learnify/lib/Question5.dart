@@ -11,8 +11,7 @@ import 'package:learnify/Question2.dart';
 import 'package:learnify/Question3.dart';
 import 'package:learnify/Question4.dart';
 import 'package:learnify/Question5.dart';
-import 'package:learnify/Question5.dart';
-import 'package:learnify/Register.dart';
+import 'package:learnify/Question5.dart';import 'package:learnify/Register.dart';
 
 class Question5 extends StatelessWidget {
   String depth = '';
