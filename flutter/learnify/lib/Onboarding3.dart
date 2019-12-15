@@ -21,7 +21,7 @@ class Onboarding3 extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Text(
-                "programming made easy.",
+                "join a community of helpers.",
                 style: TextStyle(
                   color: const Color(0xff99216203),
                   fontFamily: 'Rubik',
@@ -29,11 +29,11 @@ class Onboarding3 extends StatelessWidget {
                 ),
               ),
             ),
-            Image.asset('assets/images/4.png'),
+            Image.asset('assets/images/3.png'),
             Padding(
               padding: const EdgeInsets.only(left: 25.0, right: 25.0),
               child: Text(
-                "Hfioa Jfafa jifoj OAjofjaiofj",
+                "Become a mentor and create your own content.",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
@@ -43,12 +43,21 @@ class Onboarding3 extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Text(
-                "hIhiofea fioeaj fiojs fjasiof acnioafioeaw fjoiea fjoeiafjeaioc jeiaof jeaiofjasio fjasklcjnaeiosjioasjfoi sajc iosajcioasejf ioeajsfi sajicm",
+                "Every time you finish a module, you get a Learnify certification.",
                 style: TextStyle(fontSize: 14),
               ),
             ),
             RaisedButton(
-              child: Text('start learning'),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  'start learning',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
               color: Colors.blueGrey[900],
               textColor: Colors.white,
               onPressed: () {

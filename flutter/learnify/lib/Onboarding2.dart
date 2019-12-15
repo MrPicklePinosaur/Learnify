@@ -29,11 +29,11 @@ class Onboarding2 extends StatelessWidget {
                 ),
               ),
             ),
-            Image.asset('assets/images/4.png'),
+            Image.asset('assets/images/2.png'),
             Padding(
               padding: const EdgeInsets.only(left: 25.0, right: 25.0),
               child: Text(
-                "Hfioa Jfafa jifoj OAjofjaiofj",
+                "With thousands of resources, it's hard to know what's best.",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
@@ -43,12 +43,21 @@ class Onboarding2 extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Text(
-                "hIhiofea fioeaj fiojs fjasiof acnioafioeaw fjoiea fjoeiafjeaioc jeiaof jeaiofjasio fjasklcjnaeiosjioasjfoi sajc iosajcioasejf ioeajsfi sajicm",
+                "Learnify uses suggestions by trusted members of the community and our own, constantly updating database to create a high-quality list of resources, so you can be rest assured you're getting the best.",
                 style: TextStyle(fontSize: 14),
               ),
             ),
             RaisedButton(
-              child: Text('start learning'),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  'next',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
               color: Colors.blueGrey[900],
               textColor: Colors.white,
               onPressed: () {

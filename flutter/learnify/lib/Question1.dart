@@ -42,7 +42,8 @@ class Question1 extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 25.0, bottom: 25.0),
+              padding:
+                  const EdgeInsets.only(right: 25.0, bottom: 25.0, top: 25.0),
               child: RaisedButton(
                 shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(18.0),
@@ -77,7 +78,7 @@ class Question1 extends StatelessWidget {
                 elevation: 6,
                 padding: EdgeInsets.all(15.0),
                 child: Text(
-                  selectedExperience=experiences[1],
+                  selectedExperience = experiences[1],
                   style: TextStyle(
                     fontSize: 20.0,
                     color: Colors.black,
@@ -90,7 +91,7 @@ class Question1 extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => Question2()));
                 },
               ),
-    ),
+            ),
             Padding(
               padding: const EdgeInsets.only(right: 25.0, bottom: 25.0),
               child: RaisedButton(
@@ -102,7 +103,7 @@ class Question1 extends StatelessWidget {
                 elevation: 6,
                 padding: EdgeInsets.all(15.0),
                 child: Text(
-                  selectedExperience=experiences[2],
+                  selectedExperience = experiences[2],
                   style: TextStyle(
                     fontSize: 20.0,
                     color: Colors.black,
@@ -116,10 +117,9 @@ class Question1 extends StatelessWidget {
                 },
               ),
             )
-    ],
-    ),
+          ],
+        ),
       ),
-            );
-
-}
+    );
+  }
 }

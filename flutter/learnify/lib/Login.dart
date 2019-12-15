@@ -4,9 +4,7 @@ import 'package:learnify/CommandHandler.dart';
 import 'package:learnify/Dashboard.dart';
 import 'package:learnify/Question1.dart';
 import 'package:learnify/Register.dart';
-
 import 'Question2.dart';
-
 
 //LOGIN PAGE
 class Login extends StatelessWidget {
@@ -60,36 +58,45 @@ class Login extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    left: 25.0, right: 25.0, bottom: 25.0),
+                    left: 16.0, right: 16.0, bottom: 16.0),
                 child: RaisedButton(
-                  child: Text('log in'),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      'log in',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  color: Colors.blueGrey[900],
+                  textColor: Colors.white,
                   onPressed: () {
-                    handler.authenticateUser(
-                        usernameController.text, passwordController.text).then((value) {
-                          if(value){
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => Dashboard()));
-
-                          }
-
-
-
-                    });
-
-
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Dashboard()));
                   },
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    left: 25.0, right: 25.0, bottom: 25.0),
+                    bottom: 16.0, left: 16.0, right: 16.0),
                 child: RaisedButton(
-                  child: Text('register'),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      'register',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  color: Colors.blueGrey[900],
+                  textColor: Colors.white,
                   onPressed: () {
                     Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Register()));
-
-
+                        MaterialPageRoute(builder: (context) => Register()));
                   },
                 ),
               ),

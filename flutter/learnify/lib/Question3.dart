@@ -63,6 +63,8 @@ class Question3 extends StatelessWidget {
                 ),
                 onPressed: () {
                   commitment = "1-2 hours";
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Question4()));
                 },
               ),
             ),
@@ -86,6 +88,8 @@ class Question3 extends StatelessWidget {
                 ),
                 onPressed: () {
                   commitment = "3-5 hours";
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Question4()));
                 },
               ),
             ),
@@ -109,34 +113,9 @@ class Question3 extends StatelessWidget {
                 ),
                 onPressed: () {
                   commitment = "6+";
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Question4()));
                 },
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding: const EdgeInsets.all(25.0),
-                child: RaisedButton(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(60.0),
-                      side: BorderSide(color: Colors.white)),
-                  color: Colors.white,
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Question4()));
-                  },
-                  textColor: Colors.black,
-                  elevation: 6,
-                  padding: EdgeInsets.all(15.0),
-                  child: Text(
-                    '>',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.black,
-                      fontFamily: 'Rubik',
-                    ),
-                  ),
-                ),
               ),
             ),
           ],

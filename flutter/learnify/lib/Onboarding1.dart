@@ -21,7 +21,7 @@ class Onboarding1 extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Text(
-                "programming made easy.",
+                "learning made personal.",
                 style: TextStyle(
                   color: const Color(0xff99216203),
                   fontFamily: 'Rubik',
@@ -29,11 +29,11 @@ class Onboarding1 extends StatelessWidget {
                 ),
               ),
             ),
-            Image.asset('assets/images/4.png'),
+            Image.asset('assets/images/1.png'),
             Padding(
               padding: const EdgeInsets.only(left: 25.0, right: 25.0),
               child: Text(
-                "Hfioa Jfafa jifoj OAjofjaiofj",
+                "learn from courses that are specifically designed for you",
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -44,12 +44,21 @@ class Onboarding1 extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Text(
-                "hIhiofea fioeaj fiojs fjasiof acnioafioeaw fjoiea fjoeiafjeaioc jeiaof jeaiofjasio fjasklcjnaeiosjioasjfoi sajc iosajcioasejf ioeajsfi sajicm",
+                "Learnify takes into account factors like experience, depth of focus, subject area, and price to build the course that you're looking for.",
                 style: TextStyle(fontSize: 14),
               ),
             ),
             RaisedButton(
-              child: Text('start learning'),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  'next',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
               color: Colors.blueGrey[900],
               textColor: Colors.white,
               onPressed: () {

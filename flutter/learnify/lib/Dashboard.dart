@@ -7,6 +7,7 @@ import 'package:learnify/Onboarding3.dart';
 import 'package:learnify/Dashboard.dart';
 import 'package:learnify/Question1.dart';
 import 'package:learnify/Login.dart';
+import 'package:learnify/Learn1.dart';
 
 class Dashboard extends StatelessWidget {
   @override
@@ -54,7 +55,7 @@ class Dashboard extends StatelessWidget {
                   ClipRRect(
                     borderRadius: new BorderRadius.circular(25.0),
                     child: Image.asset(
-                      'assets/images/flutterformobile.jpg',
+                      'assets/images/wack.jpg',
                       height: 110,
                       width: 110,
                     ),
@@ -64,7 +65,7 @@ class Dashboard extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: new BorderRadius.circular(25.0),
                       child: Image.asset(
-                        'assets/images/flutterformobile.jpg',
+                        'assets/images/webweb.jpg',
                         height: 110,
                         width: 110,
                       ),
@@ -80,17 +81,19 @@ class Dashboard extends StatelessWidget {
                   fontSize: 19,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.asset('assets/images/stats.png'),
-              ),
-              Text(
-                'notifications',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'Rubik',
-                  fontSize: 18,
+              Align(
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset('assets/images/stats.png'),
                 ),
+              ),
+              RaisedButton(
+                child: Text('GO'),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Learn1()));
+                },
               ),
             ],
           ),

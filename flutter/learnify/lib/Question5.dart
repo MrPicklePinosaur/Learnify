@@ -11,7 +11,8 @@ import 'package:learnify/Question2.dart';
 import 'package:learnify/Question3.dart';
 import 'package:learnify/Question4.dart';
 import 'package:learnify/Question5.dart';
-import 'package:learnify/Question5.dart';import 'package:learnify/Register.dart';
+import 'package:learnify/Question5.dart';
+import 'package:learnify/Register.dart';
 
 class Question5 extends StatelessWidget {
   String depth = '';
@@ -64,6 +65,16 @@ class Question5 extends StatelessWidget {
                 ),
                 onPressed: () {
                   depth = "broad overview";
+                  CommandHandler.ref.createUser(
+                      Register.usernameController.text,
+                      Register.passwordController.text,
+                      Question1.selectedExperience,
+                      Question2.language,
+                      Question3.commitment,
+                      Question4.interests,
+                      depth);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Dashboard()));
                 },
               ),
             ),
@@ -87,6 +98,16 @@ class Question5 extends StatelessWidget {
                 ),
                 onPressed: () {
                   depth = "technical";
+                  CommandHandler.ref.createUser(
+                      Register.usernameController.text,
+                      Register.passwordController.text,
+                      Question1.selectedExperience,
+                      Question2.language,
+                      Question3.commitment,
+                      Question4.interests,
+                      depth);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Dashboard()));
                 },
               ),
             ),
@@ -110,36 +131,17 @@ class Question5 extends StatelessWidget {
                 ),
                 onPressed: () {
                   depth = "highly technical";
+                  CommandHandler.ref.createUser(
+                      Register.usernameController.text,
+                      Register.passwordController.text,
+                      Question1.selectedExperience,
+                      Question2.language,
+                      Question3.commitment,
+                      Question4.interests,
+                      depth);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Dashboard()));
                 },
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding: const EdgeInsets.all(25.0),
-                child: RaisedButton(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(60.0),
-
-                      side: BorderSide(color: Colors.white)),
-                  color: Colors.white,
-                  onPressed: () {
-                    CommandHandler.ref.createUser(Register.usernameController.text,Register.passwordController.text,Question1.selectedExperience, Question2.language, Question3.commitment, Question4.interests, depth);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Login()));
-                  },
-                  textColor: Colors.black,
-                  elevation: 6,
-                  padding: EdgeInsets.all(15.0),
-                  child: Text(
-                    '>',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.black,
-                      fontFamily: 'Rubik',
-                    ),
-                  ),
-                ),
               ),
             ),
           ],
