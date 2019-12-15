@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:learnify/CommandHandler.dart';
+var handler=CommandHandler();
+TextEditingController passwordController=TextEditingController();
+TextEditingController usernameController=TextEditingController();
 void main() => runApp(Learnify());
 
 class Learnify extends StatelessWidget {
@@ -211,6 +214,7 @@ class FourthScreen extends StatelessWidget {
                     hintText: 'username',
                     border: OutlineInputBorder(),
                   ),
+                  controller: usernameController,
                 ),
               ),
               Padding(
@@ -222,6 +226,8 @@ class FourthScreen extends StatelessWidget {
                     hintText: 'password',
                     border: OutlineInputBorder(),
                   ),
+                  controller: passwordController,
+
                 ),
               ),
               Padding(
@@ -230,8 +236,10 @@ class FourthScreen extends StatelessWidget {
                 child: RaisedButton(
                   child: Text('sign up'),
                   onPressed: () {
+                    handler.authenticateUser(usernameController.text, passwordController.text);
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => FifthScreen()));
+                    
                   },
                 ),
               ),
