@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:learnify/CommandHandler.dart';
-var handler=CommandHandler();
-TextEditingController passwordController=TextEditingController();
-TextEditingController usernameController=TextEditingController();
+
+var handler = CommandHandler();
+TextEditingController passwordController = TextEditingController();
+TextEditingController usernameController = TextEditingController();
 void main() => runApp(Learnify());
 
 class Learnify extends StatelessWidget {
@@ -227,7 +228,6 @@ class FourthScreen extends StatelessWidget {
                     border: OutlineInputBorder(),
                   ),
                   controller: passwordController,
-
                 ),
               ),
               Padding(
@@ -236,10 +236,10 @@ class FourthScreen extends StatelessWidget {
                 child: RaisedButton(
                   child: Text('sign up'),
                   onPressed: () {
-                    handler.authenticateUser(usernameController.text, passwordController.text);
+                    handler.authenticateUser(
+                        usernameController.text, passwordController.text);
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => FifthScreen()));
-                    
                   },
                 ),
               ),
@@ -279,6 +279,41 @@ class FifthScreen extends StatelessWidget {
                   fontFamily: 'Rubik',
                   fontSize: 19,
                 ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: ClipRRect(
+                      borderRadius: new BorderRadius.circular(25.0),
+                      child: Image.asset(
+                        'assets/images/flutterformobile.jpg',
+                        height: 110,
+                        width: 110,
+                      ),
+                    ),
+                  ),
+                  ClipRRect(
+                    borderRadius: new BorderRadius.circular(25.0),
+                    child: Image.asset(
+                      'assets/images/flutterformobile.jpg',
+                      height: 110,
+                      width: 110,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: ClipRRect(
+                      borderRadius: new BorderRadius.circular(25.0),
+                      child: Image.asset(
+                        'assets/images/flutterformobile.jpg',
+                        height: 110,
+                        width: 110,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
