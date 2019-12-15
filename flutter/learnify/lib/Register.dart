@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:learnify/CommandHandler.dart';
-import 'package:learnify/Dashboard.dart';
 import 'package:learnify/Question1.dart';
-import 'package:learnify/Register.dart';
+
 var handler = CommandHandler();
-TextEditingController passwordController = TextEditingController();
-TextEditingController usernameController = TextEditingController();
+
 
 //LOGIN PAGE
 class Login extends StatelessWidget {
+  static TextEditingController passwordController = TextEditingController();
+  static TextEditingController usernameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -65,17 +65,10 @@ class Login extends StatelessWidget {
                     handler.authenticateUser(
                         usernameController.text, passwordController.text);
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Dashboard()));
+                        MaterialPageRoute(builder: (context) => Question1()));
                   },
                 ),
               ),
-              RaisedButton(
-                child:Text('log in'),
-                onPressed: (){
-                  MaterialPageRoute(builder: (context) => Register());
-
-                }
-              )
             ],
           ),
         ),

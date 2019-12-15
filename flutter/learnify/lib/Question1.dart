@@ -9,8 +9,8 @@ import 'package:learnify/Question1.dart';
 import 'package:learnify/Login.dart';
 
 class Question1 extends StatelessWidget {
-  List<String> _experiences = ['beginner', 'intermediate', 'expert'];
-  String _selectedExperience;
+  List<String> experiences = ['beginner', 'intermediate', 'expert'];
+  static String selectedExperience;
 
   @override
   Widget build(BuildContext context) {

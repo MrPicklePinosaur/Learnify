@@ -11,6 +11,7 @@ import 'package:learnify/Question2.dart';
 import 'package:learnify/Question3.dart';
 import 'package:learnify/Question4.dart';
 import 'package:learnify/Question5.dart';
+import 'package:learnify/Question5.dart';import 'package:learnify/Register.dart';
 
 class Question5 extends StatelessWidget {
   String depth = '';
@@ -119,11 +120,13 @@ class Question5 extends StatelessWidget {
                 child: RaisedButton(
                   shape: new RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(60.0),
+
                       side: BorderSide(color: Colors.white)),
                   color: Colors.white,
                   onPressed: () {
+                    CommandHandler.ref.createUser(Register.user,Register.password,Question1.selectedExperience, Question2.language, Question3.commitment, Question4.interests, depth);
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Dashboard()));
+                        MaterialPageRoute(builder: (context) => Login()));
                   },
                   textColor: Colors.black,
                   elevation: 6,
