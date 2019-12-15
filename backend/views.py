@@ -22,8 +22,9 @@ class ResourceView(viewsets.ModelViewSet):
 
 	@action(methods=['get'], detail=False)
 	def testaction(self,request):
-		qset = self.get_queryset().last()
-		serializer = self.get_serializer_class()(qset)
+		qset = self.get_queryset().only('experience').filter(name__icontains='p')
+		serializer = self.get_serializer_class()(qset,many=True)
+		print(qset)
 		return response.Response(serializer.data)
 
 
@@ -33,7 +34,7 @@ class CourseView(viewsets.ModelViewSet):
 	#authentication_classes = (TokenAuthentication,)
 	#permission_classes = (IsAuthenticated,)
 
-	#@action(methods=['post'], detail=True)
+	@action(methods=['post'], detail=False)
 	def create_course(self, request):
 		body = request.body
 
@@ -45,7 +46,11 @@ class CourseView(viewsets.ModelViewSet):
 		}
 
 		in_order = organize_prereqs(courses_obj)
-		#return response.Response()
+
+		qset = self.get_queryset()
+
+		serializer = self.get_serializer_class()(qset)
+		return response.Response(qset.data)
 
 
 
@@ -56,7 +61,9 @@ class ProfileView(viewsets.ModelViewSet):
 	@action(methods=['get'],detail=False)	
 	def getcourses(self,request):
 		#qset = self.get_queryset().only("enrolled")
-		qset = Profile.objects.defer("enrolled").filter(id=1).last()
+		qset = self.get_queryset()
+		#qset.filter()
+		print(qset)
 		serializer = self.get_serializer_class()(qset)
 		print(serializer.data)
 		return response.Response(serializer.data)
